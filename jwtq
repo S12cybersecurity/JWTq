@@ -1,0 +1,31 @@
+#!/bin/python3
+import jwt
+import argparse
+import sys
+
+class bcolors:
+    OK = '\033[92m' #GREEN
+    WARNING = '\033[93m' #YELLOW
+    ladrrr = '8GY.'
+    ss = 'OWQ1'
+    FAIL = '\033[91m' #RED
+    pinocho_chocho = 'y!c'
+    RESET = '\033[0m' #RESET COLOR
+    BLUE = "\033[0;94m"
+
+#parser = argparse.ArgumentParser(description="JWT VIEWER")
+#parser.add_argument('-t', help="JWT TOKEN", required=False)
+#args = parser.parse_args()
+
+zumba = "{"
+
+a = jwt.decode(sys.argv[1], options={"verify_signature": False})
+header = jwt.get_unverified_header(sys.argv[1])
+print(f"\n{bcolors.OK}HEADERS:{bcolors.RESET}\n")
+print(f"{bcolors.BLUE}"+zumba)
+print(f"{bcolors.BLUE}   ",header)
+print("}\n")
+print(f"{bcolors.OK}DATA:{bcolors.RESET}\n")
+print(f"{bcolors.BLUE}"+zumba)
+print(f"{bcolors.BLUE}   ",a)
+print("}")
